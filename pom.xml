@@ -8,17 +8,94 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>cut-cloud-api</module>
+        <module>cut-cloud-service</module>
         <module>cut-cloud-war</module>
         <module>cut-cloud-web</module>
-        <module>cut-cloud-service</module>
     </modules>
     <packaging>pom</packaging>
 
+    <properties>
+        <cut.cloud.version>1.0-SNAPSHOT</cut.cloud.version>
+        <dubbo.version>2.6.6</dubbo.version>
+        <zookeeper.version>3.4.10</zookeeper.version>
+        <zkclient.version>0.5</zkclient.version>
+        <netty.version>4.1.32.Final</netty.version>
+    </properties>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.1.RELEASE</version>
     </parent>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.101tec</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zkclient.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>2.8.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>2.8.0</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>cut-cloud-web</artifactId>
+                <groupId>com.cut.cloud</groupId>
+                <version>${cut.cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>cut-cloud-api</artifactId>
+                <groupId>com.cut.cloud</groupId>
+                <version>${cut.cloud.version}</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>cut-cloud-service</artifactId>
+                <groupId>com.cut.cloud</groupId>
+                <version>${cut.cloud.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
