@@ -1,9 +1,9 @@
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.lt
-endpoints:
+spring:
   jmx:
-    unique-names:true
+    default-domain: cut-cloud-war-1.0-SNAPSHOT
 spring:
   datasource:
     username: root
