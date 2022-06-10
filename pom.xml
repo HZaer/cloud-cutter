@@ -16,7 +16,7 @@
 
     <properties>
         <cut.cloud.version>1.0-SNAPSHOT</cut.cloud.version>
-        <dubbo.version>2.6.6</dubbo.version>
+        <dubbo.version>2.6.12</dubbo.version>
         <zookeeper.version>3.4.10</zookeeper.version>
         <zkclient.version>0.5</zkclient.version>
         <netty.version>4.1.32.Final</netty.version>
